@@ -1,7 +1,7 @@
 {
   "id": "neodex.echecs",
   "name": "Échecs",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "NDesumeur",
   "description": "Les échecs contre l'ordinateur, avec toutes les règles : roque, prise en passant, promotion au choix, pat, règle des 50 coups, triple répétition et matériel insuffisant. Sept niveaux du débutant au grand maître, pièces à cliquer ou à glisser, coup annulable, partie notée en notation française, statistiques par niveau, et la partie en cours reprise même sur un autre PC.",
   "icon": "icon.png",
