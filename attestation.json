@@ -1,9 +1,9 @@
 {
   "pluginId": "neodex.echecs",
   "repo": "NDesumeur/neodex-plugin-echecs",
-  "version": "1.1.1",
-  "sha256": "6a3cd81c41ed6900a6bc1fe83f29c3605ef590d09d925759eccbdb27c2e59f70",
-  "approvedAt": "2026-11-06T21:35:47.984Z",
+  "version": "1.1.2",
+  "sha256": "5716263c4d5e1952c8927184b9df978ffdae54d4e761a07183b1eb7ae687c5b9",
+  "approvedAt": "2026-11-08T12:10:47.326Z",
   "neobase": ">=4.0.0",
-  "signature": "d0ychADSh7X1Z9NAThqHDKwgUnvWpBB/wym4z0huBGYVULSYbq5QOTTECvnAX5nXr5xUbpxK+9ezgT/5qKsaDA=="
+  "signature": "wrvDgmp138ZqRqdCd9hBN7ZCv1jVzXCJKVr6WfgofuDqsX9yw7tkJci0NL5uOlhyFduFcqQt0QwP9mijOX0EDw=="
 }
