@@ -6,8 +6,8 @@ Play chess against the computer, from beginner to grandmaster level. Every rule 
 
 ## How to play
 
-- **Click a piece** then its destination square, or **drag it**.
-- When a pawn reaches the last rank, choose its **promotion**: queen, rook, bishop or knight.
+- **Click a piece** then its destination square, or **drag it**. Possible squares are marked with a dot, captures with red corners.
+- When a pawn reaches the last rank, choose its **promotion** on the board: queen, rook, bishop or knight.
 - **Undo** takes back your last move (and the computer's reply).
 - **New game** starts over; the colour list chooses **I play white**, **I play black** or **Random colour**. White moves first.
 - Changing the **level** during a game applies at once, without restarting.
@@ -30,7 +30,7 @@ Beginner, Easy, Medium, Hard, Expert, Master and Grandmaster. The first three lo
 
 ## During the game
 
-The **Moves** panel lists the game in **French notation**: R king (roi), D queen (dame), T rook (tour), F bishop (fou), C knight (cavalier). The header shows your wins, draws and losses at the chosen level.
+The pixel art board takes the room your screen gives it; its coordinates (a to h, 1 to 8) are written on the frame. The band at the top says whose turn it is, in big letters, and flashes red when your king is in check. The **Captures** panel shows the pieces taken on each side and the material lead. The **Moves** panel, with striped rows, highlights the last move; it lists the game in **French notation**: R king (roi), D queen (dame), T rook (tour), F bishop (fou), C knight (cavalier). The header shows your wins, draws and losses at the chosen level.
 
 ## Data and sync
 

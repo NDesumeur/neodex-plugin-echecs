@@ -6,8 +6,8 @@ Joue aux échecs contre l'ordinateur, du niveau débutant au grand maître. Tout
 
 ## Comment jouer
 
-- **Clique une pièce** puis sa case d'arrivée, ou **fais-la glisser**.
-- Quand un pion atteint la dernière rangée, choisis sa **promotion** : dame, tour, fou ou cavalier.
+- **Clique une pièce** puis sa case d'arrivée, ou **fais-la glisser**. Les cases possibles sont marquées d'un point, les prises par des coins rouges.
+- Quand un pion atteint la dernière rangée, choisis sa **promotion** sur l'échiquier : dame, tour, fou ou cavalier.
 - **Annuler** reprend ton dernier coup (et la réponse de l'ordinateur).
 - **Nouvelle partie** recommence ; la liste de couleur choisit **Je joue les blancs**, **Je joue les noirs** ou **Couleur au hasard**. Les blancs commencent.
 - Changer de **niveau** en cours de partie s'applique tout de suite, sans recommencer.
@@ -30,7 +30,7 @@ Débutant, Facile, Moyen, Difficile, Expert, Maître et Grand maître. Les trois
 
 ## Pendant la partie
 
-Le panneau **Coups** liste la partie en **notation française** : R roi, D dame, T tour, F fou, C cavalier. L'en-tête montre tes victoires, nulles et défaites au niveau choisi.
+L'échiquier en pixel art prend la place de l'écran ; ses coordonnées (a à h, 1 à 8) sont écrites sur le cadre. La bande du haut dit à qui c'est le tour, en gros, et clignote en rouge quand ton roi est en échec. Le panneau **Prises** montre les pièces prises de chaque côté et l'avance en matériel. Le panneau **Coups**, à lignes alternées, surligne le dernier coup ; il liste la partie en **notation française** : R roi, D dame, T tour, F fou, C cavalier. L'en-tête montre tes victoires, nulles et défaites au niveau choisi.
 
 ## Données et synchronisation
 
