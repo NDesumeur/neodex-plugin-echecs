@@ -17,7 +17,6 @@
  "Niveau": "Level",
  "PNBRQK": "PNBRQK",
  "PPPPPPPPRNBQKBNR": "PPPPPPPPRNBQKBNR",
- "Statistiques, partie en cours.": "Statistics, part in progress.",
  "Tu as gagné !": "You won!",
  "défaites": "defeats",
  "matériel insuffisant": "insufficient material",
@@ -88,5 +87,6 @@
  "20 coups au départ": "20 moves at the start",
  "coup du berger": "scholar's mate",
  "pièces": "pieces",
- "échecs": "chess"
+ "échecs": "chess",
+ "Rien n'est synchronisé : tes records restent sur cet appareil.": "Nothing is synced: your records stay on this device."
 }
