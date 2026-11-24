@@ -1,9 +1,9 @@
 {
   "id": "neodex.echecs",
   "name": "Échecs",
-  "version": "1.2.2",
+  "version": "1.5.0",
   "author": "NDesumeur",
-  "description": "Les échecs contre l'ordinateur, avec toutes les règles : roque, prise en passant, promotion au choix, pat, règle des 50 coups, triple répétition et matériel insuffisant. Sept niveaux du débutant au grand maître, pièces à cliquer ou à glisser, coup annulable, partie notée en notation française, statistiques par niveau, et la partie en cours reprise même sur un autre PC. En pixel art : grandes pièces dessinées à la main, échiquier à la taille de l'écran avec ses coordonnées, à qui le tour en gros, et un panneau des coups lisible où le dernier coup est surligné.",
+  "description": "Les échecs contre l'ordinateur, avec toutes les règles : roque, prise en passant, promotion au choix, pat, règle des 50 coups, triple répétition et matériel insuffisant. Sept niveaux du débutant au grand maître, pièces à cliquer ou à glisser, coup annulable, partie notée en notation française, statistiques par niveau, et la partie en cours reprise même sur un autre PC. En pixel art : grandes pièces dessinées à la main, échiquier à la taille de l'écran avec ses coordonnées, à qui le tour en gros, et un panneau des coups lisible où le dernier coup est surligné. Copie et ouvre les parties au format PGN. Mode problèmes : 414 positions de Lichess, avec un classement. À distance contre un ami, par un code.",
   "icon": "icon.png",
   "entry": "index.js",
   "view": "echecs",
@@ -21,6 +21,7 @@
   "dependencies": {},
   "sdk": "2.1.0",
   "permissions": [
-    "storage"
+    "storage",
+    "rooms"
   ]
 }

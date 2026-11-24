@@ -4,6 +4,18 @@ Play chess against the computer, from beginner to grandmaster level. Every rule 
 
 *Version française : [README.md](README.md)*
 
+## Online (new in 1.5.0)
+
+A game of chess against a friend, online, with a code; colours swap at each rematch.
+
+## Puzzles (new in 1.4.0)
+
+A puzzle mode: 414 positions from the free Lichess database, picked near your rating, which goes up or down like in chess. A wrong move is refused, a hint shows the piece to move.
+
+## Games in PGN format (new in 1.3.0)
+
+COPY THE GAME gives the game in PGN format, in English notation, readable by every chess site. OPEN THIS PGN resumes a pasted game (English or French notation, with or without comments and variations) and the computer carries on.
+
 ## How to play
 
 - **Click a piece** then its destination square, or **drag it**. Possible squares are marked with a dot, captures with red corners.

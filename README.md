@@ -4,6 +4,18 @@ Joue aux échecs contre l'ordinateur, du niveau débutant au grand maître. Tout
 
 *English version: [README.en.md](README.en.md)*
 
+## À distance (nouveau en 1.5.0)
+
+Une partie d'échecs contre un ami, à distance, grâce à un code ; les couleurs s'échangent à chaque revanche.
+
+## Problèmes (nouveau en 1.4.0)
+
+Un mode problèmes : 414 positions de la base libre de Lichess, choisies près de ton classement, qui monte ou descend comme aux échecs. Un faux coup est refusé, un indice montre la pièce à jouer.
+
+## Parties au format PGN (nouveau en 1.3.0)
+
+COPIER LA PARTIE donne la partie au format PGN, en notation anglaise, lisible par tous les sites d’échecs. OUVRIR CE PGN reprend une partie collée (notation anglaise ou française, avec ou sans commentaires et variantes) et l’ordinateur continue.
+
 ## Comment jouer
 
 - **Clique une pièce** puis sa case d'arrivée, ou **fais-la glisser**. Les cases possibles sont marquées d'un point, les prises par des coins rouges.
