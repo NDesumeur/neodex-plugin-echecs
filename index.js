@@ -315,6 +315,9 @@ export default async function (ctx) {
   let gamesTimer = null;
   const saveGames = () => { clearTimeout(gamesTimer); gamesTimer = setTimeout(() => { gamesTimer = null; folder.write('games', games).catch(() => {}); }, 500); };
   const gstore = (k, init) => (games[k] ??= init);
+  // les trophées de NeoDex (3.4.8 et plus) : succès et records déclarés dans plugin.json ; sur un NeoDex plus ancien, rien ne se passe
+  const trophy = id => { ctx.games?.unlock(id).catch(() => {}); };
+  const trophyRecord = (id, v) => { if (v != null && Number.isFinite(+v)) ctx.games?.record(id, +v).catch(() => {}); };
 function gameText(g, w, lines, y0) {  // lignes centrées en police pixel, sur une bande sombre
   g.fillStyle = 'rgba(11,3,28,.82)'; g.fillRect(0, y0 - 18, w, lines.length * 16 + 16);
   lines.forEach(([text, color, size], i) => PXK.fill(g, text, w / 2, y0 + i * 16 + (size > 8 ? 4 : 0), color, PXK.scale(size), 'center'));
@@ -527,7 +530,7 @@ function chPuzScore(win) {  // une seule fois par problème : réussi du premier
   const pz = ch.puz, p = chPs(); if (pz.scored) return; pz.scored = true;
   const e = 1 / (1 + 10 ** ((CH_PUZ[pz.i][3] - p.r) / 400)); p.r = Math.round(p.r + 32 * ((win ? 1 : 0) - e));
   if (win) { p.ok++; p.streak++; p.best = Math.max(p.best, p.streak); } else { p.ko++; p.streak = 0; }
-  saveGames();
+  saveGames(); chTrophies();
 }
 function chPuzMove(m) {  // ton coup dans un problème : le bon (ou un autre mat au dernier coup), sinon on revient en arrière
   const pz = ch.puz, u = 'abcdefgh'[m.f & 7] + (8 - (m.f >> 3)) + 'abcdefgh'[m.t & 7] + (8 - (m.t >> 3)) + (m.p || '').toLowerCase();
@@ -599,7 +602,7 @@ function chApply(m, quiet, dragged) {
   if (ch.net) {  // à distance : mon coup part à l'ami ; rien n'est gardé, les scores à part
     if ((ch.s.w ? 'b' : 'w') === ch.human) ctx.room.send({t: 'coup', a: m.f, b: m.t, p: m.p || '', n: ch.moves.length - 1}).catch(e => toast(e.message, true));
     if (ch.over) { const r = (gstore('chess', {}).net ??= {w: 0, l: 0, d: 0}), k = ch.over.result === 'd' ? 'd' : ch.over.result === ch.human ? 'w' : 'l'; r[k]++; setTimeout(() => sfx(k === 'w' ? 'launch' : k === 'l' ? 'error' : 'notify'), SLIDE); }
-    saveGames(); chRender(); setTimeout(netTry, 0); return;
+    saveGames(); chRender(); chTrophies(); setTimeout(netTry, 0); return;
   }
   const st = gstore('chess', {});
   st.save = ch.over ? null : {level: ch.level, human: ch.human, moves: ch.moves.map(({f, t, p}) => ({f, t, p}))};
@@ -608,7 +611,7 @@ function chApply(m, quiet, dragged) {
     const k = ch.over.result === 'd' ? 'd' : ch.over.result === ch.human ? 'w' : 'l'; r[k]++;
     setTimeout(() => sfx(k === 'w' ? 'launch' : k === 'l' ? 'error' : 'notify'), SLIDE);
   }
-  saveGames(); chRender();
+  saveGames(); chRender(); if (ch.over) chTrophies();
   if (!ch.over && (ch.s.w ? 'w' : 'b') !== ch.human) chThink();
 }
 function chThink() {
@@ -817,5 +820,13 @@ cv.__ch = {st: () => ch, check: chCheck, net: () => net, pgn: () => chPgn(), puz
   replay: moves => { chId++; chReplay({level: ch.level, human: ch.human, moves}); chRender(); },
   setPos: b => { chId++; ch.s = {b, w: true, c: '', ep: -1, h: 0}; ch.hist = [CH.key(ch.s)]; ch.moves = []; ch.sel = -1; ch.over = null; ch.thinking = false; ch.anim = null; ch.promo = null; chRender(); }};
 const loop = () => { if (!view.classList.contains('on')) { loop.raf = 0; return; } loop.raf = requestAnimationFrame(loop); chDraw(); };
-  ctx.onOpen(() => { chOpen(); if (!loop.raf) loop.raf = requestAnimationFrame(loop); });
+  // les trophées, tirés des statistiques et des records gardés (aussi à l'ouverture : ce qui a été fait avant compte)
+  function chTrophies() {
+    const st = games.chess || {}, p = st.puz || {}, w = i => st['lvl' + i]?.w > 0, any = k => Object.keys(st).some(x => (x.startsWith('lvl') || x === 'net') && st[x]?.[k] > 0);
+    trophyRecord('classement', p.ok ? p.r : null); trophyRecord('serie', p.best || null); trophyRecord('resolus', p.ok || null);
+    if (w(0) || w(1)) trophy('debutant'); if (w(2)) trophy('moyen'); if (w(3)) trophy('difficile'); if (w(4)) trophy('expert'); if (w(5)) trophy('maitre'); if (w(6)) trophy('grand-maitre');
+    if (p.ok >= 1) trophy('probleme'); if (p.ok >= 25) trophy('problemes25'); if (p.ok >= 100) trophy('problemes100'); if (p.best >= 10) trophy('serie10');
+    if (p.r >= 1500) trophy('classe1500'); if (p.r >= 1800) trophy('classe1800'); if (st.net?.w) trophy('net'); if (any('d')) trophy('nul');
+  }
+  ctx.onOpen(() => { chOpen(); if (!loop.raf) loop.raf = requestAnimationFrame(loop); chTrophies(); });
 }

@@ -1,7 +1,7 @@
 {
   "id": "neodex.echecs",
   "name": "Échecs",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "author": "NDesumeur",
   "description": "Les échecs contre l'ordinateur, avec toutes les règles : roque, prise en passant, promotion au choix, pat, règle des 50 coups, triple répétition et matériel insuffisant. Sept niveaux du débutant au grand maître, pièces à cliquer ou à glisser, coup annulable, partie notée en notation française, statistiques par niveau, et la partie en cours reprise même sur un autre PC. En pixel art : grandes pièces dessinées à la main, échiquier à la taille de l'écran avec ses coordonnées, à qui le tour en gros, et un panneau des coups lisible où le dernier coup est surligné. Copie et ouvre les parties au format PGN. Mode problèmes : 414 positions de Lichess, avec un classement. À distance contre un ami, par un code.",
   "icon": "icon.png",
@@ -23,5 +23,98 @@
   "permissions": [
     "storage",
     "rooms"
+  ],
+  "succes": [
+    {
+      "id": "debutant",
+      "nom": "Premier mat",
+      "texte": "Battre NeoDex en Débutant"
+    },
+    {
+      "id": "moyen",
+      "nom": "Joueur de club",
+      "texte": "Battre NeoDex en Moyen"
+    },
+    {
+      "id": "difficile",
+      "nom": "Fin stratège",
+      "texte": "Battre NeoDex en Difficile"
+    },
+    {
+      "id": "expert",
+      "nom": "Expert de l'échiquier",
+      "texte": "Battre NeoDex en Expert"
+    },
+    {
+      "id": "maitre",
+      "nom": "Maître",
+      "texte": "Battre NeoDex en Maître"
+    },
+    {
+      "id": "grand-maitre",
+      "nom": "Grand maître",
+      "texte": "Battre NeoDex en Grand maître",
+      "cache": true
+    },
+    {
+      "id": "probleme",
+      "nom": "Premier problème",
+      "texte": "Résoudre un problème du premier coup"
+    },
+    {
+      "id": "problemes25",
+      "nom": "Tacticien",
+      "texte": "Résoudre 25 problèmes"
+    },
+    {
+      "id": "problemes100",
+      "nom": "Œil de lynx",
+      "texte": "Résoudre 100 problèmes"
+    },
+    {
+      "id": "serie10",
+      "nom": "Sans faute",
+      "texte": "Réussir 10 problèmes de suite"
+    },
+    {
+      "id": "classe1500",
+      "nom": "Bon classement",
+      "texte": "Atteindre 1500 de classement aux problèmes"
+    },
+    {
+      "id": "classe1800",
+      "nom": "Classement de maître",
+      "texte": "Atteindre 1800 de classement aux problèmes"
+    },
+    {
+      "id": "net",
+      "nom": "Partie d'amis",
+      "texte": "Gagner une partie en ligne"
+    },
+    {
+      "id": "nul",
+      "nom": "Personne ne gagne",
+      "texte": "Finir une partie sur un match nul"
+    }
+  ],
+  "records": [
+    {
+      "id": "classement",
+      "nom": "Classement aux problèmes",
+      "sens": "haut",
+      "format": "nombre"
+    },
+    {
+      "id": "serie",
+      "nom": "Plus longue série de problèmes",
+      "sens": "haut",
+      "format": "nombre"
+    },
+    {
+      "id": "resolus",
+      "nom": "Problèmes résolus",
+      "sens": "haut",
+      "format": "nombre"
+    }
   ]
 }
